@@ -1,144 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Brand Exploration Quiz - Discover Your Brand Maturity</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Exploration Quiz - Discover Your Brand Maturity</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<div class="app-container">
-		<header class="header">
-			<div class="container">
-				<h1 class="header__title">Brand Exploration Quiz</h1>
-				<div class="progress-container" id="progressContainer" style="display: none;">
-					<div class="progress-bar">
-						<div class="progress-fill" id="progressFill"></div>
-					</div>
-					<span class="progress-text" id="progressText">0 of 30 questions</span>
-				</div>
-			</div>
-		</header>
+    <div class="app-container">
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Brand Exploration Quiz</h1>
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0 of 30 questions</span>
+                </div>
+            </div>
+        </header>
 
-		<main class="main">
-			<div class="container">
-				<!-- Welcome Screen -->
-				<div class="screen" id="welcomeScreen">
-					<div class="welcome-content">
-						<h2>Welcome to the Brand Exploration Quiz</h2>
-						<p class="lead">Discover your brand's maturity level and get personalized recommendations for building a
-							stronger, more cohesive brand identity.</p>
+        <main class="main">
+            <div class="container">
+                <!-- Welcome Screen -->
+                <div class="screen" id="welcomeScreen">
+                    <div class="welcome-content">
+                        <h2>Welcome to the Brand Exploration Quiz</h2>
+                        <p class="lead">Discover your brand's maturity level and get personalized recommendations for building a stronger, more cohesive brand identity.</p>
+                        
+                        <div class="quiz-overview">
+                            <h3>What You'll Explore:</h3>
+                            <div class="section-preview-grid">
+                                <div class="section-preview">
+                                    <div class="section-number">1</div>
+                                    <h4>Brand Mission & Purpose</h4>
+                                    <p>Define your brand's core reason for existence and fundamental values</p>
+                                </div>
+                                <div class="section-preview">
+                                    <div class="section-number">2</div>
+                                    <h4>Target Audience & Market</h4>
+                                    <p>Identify and understand your ideal customers and market position</p>
+                                </div>
+                                <div class="section-preview">
+                                    <div class="section-number">3</div>
+                                    <h4>Visual Identity Development</h4>
+                                    <p>Establish your brand's visual elements and design consistency</p>
+                                </div>
+                                <div class="section-preview">
+                                    <div class="section-number">4</div>
+                                    <h4>Brand Messaging & Voice</h4>
+                                    <p>Craft your brand's communication style and key messages</p>
+                                </div>
+                                <div class="section-preview">
+                                    <div class="section-number">5</div>
+                                    <h4>Brand Implementation & Maintenance</h4>
+                                    <p>Execute and maintain brand consistency across all touchpoints</p>
+                                </div>
+                            </div>
+                        </div>
 
-						<div class="quiz-overview">
-							<h3>What You'll Explore:</h3>
-							<div class="section-preview-grid">
-								<div class="section-preview">
-									<div class="section-number">1</div>
-									<h4>Brand Mission & Purpose</h4>
-									<p>Define your brand's core reason for existence and fundamental values</p>
-								</div>
-								<div class="section-preview">
-									<div class="section-number">2</div>
-									<h4>Target Audience & Market</h4>
-									<p>Identify and understand your ideal customers and market position</p>
-								</div>
-								<div class="section-preview">
-									<div class="section-number">3</div>
-									<h4>Visual Identity Development</h4>
-									<p>Establish your brand's visual elements and design consistency</p>
-								</div>
-								<div class="section-preview">
-									<div class="section-number">4</div>
-									<h4>Brand Messaging & Voice</h4>
-									<p>Craft your brand's communication style and key messages</p>
-								</div>
-								<div class="section-preview">
-									<div class="section-number">5</div>
-									<h4>Brand Implementation & Maintenance</h4>
-									<p>Execute and maintain brand consistency across all touchpoints</p>
-								</div>
-							</div>
-						</div>
+                        <div class="quiz-details">
+                            <div class="detail-item">
+                                <strong>30 Questions</strong>
+                                <span>6 questions per section</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>10-15 Minutes</strong>
+                                <span>Estimated completion time</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Personalized Results</strong>
+                                <span>Detailed analysis and recommendations</span>
+                            </div>
+                        </div>
 
-						<div class="quiz-details">
-							<div class="detail-item">
-								<strong>30 Questions</strong>
-								<span>6 questions per section</span>
-							</div>
-							<div class="detail-item">
-								<strong>10-15 Minutes</strong>
-								<span>Estimated completion time</span>
-							</div>
-							<div class="detail-item">
-								<strong>Personalized Results</strong>
-								<span>Detailed analysis and recommendations</span>
-							</div>
-						</div>
+                        <button class="btn btn--primary btn--lg" id="startQuizBtn">Start Quiz</button>
+                    </div>
+                </div>
 
-						<button class="btn btn--primary btn--lg" id="startQuizBtn">Start Quiz</button>
-					</div>
-				</div>
+                <!-- Quiz Screen -->
+                <div class="screen" id="quizScreen" style="display: none;">
+                    <div class="quiz-content">
+                        <div class="section-header" id="sectionHeader">
+                            <div class="section-badge" id="sectionBadge">Section 1 of 5</div>
+                            <h2 id="sectionTitle">Brand Mission & Purpose</h2>
+                            <p id="sectionDescription">Define your brand's core reason for existence and fundamental values</p>
+                        </div>
 
-				<!-- Quiz Screen -->
-				<div class="screen" id="quizScreen" style="display: none;">
-					<div class="quiz-content">
-						<div class="section-header" id="sectionHeader">
-							<div class="section-badge" id="sectionBadge">Section 1 of 5</div>
-							<h2 id="sectionTitle">Brand Mission & Purpose</h2>
-							<p id="sectionDescription">Define your brand's core reason for existence and fundamental values</p>
-						</div>
+                        <div class="question-container" id="questionContainer">
+                            <!-- Questions will be dynamically inserted here -->
+                        </div>
 
-						<div class="question-container" id="questionContainer">
-							<!-- Questions will be dynamically inserted here -->
-						</div>
+                        <div class="navigation-buttons">
+                            <button class="btn btn--outline" id="prevBtn" disabled>Previous</button>
+                            <div class="question-indicator" id="questionIndicator">Question 1 of 6</div>
+                            <button class="btn btn--primary" id="nextBtn">Next</button>
+                        </div>
+                    </div>
+                </div>
 
-						<div class="navigation-buttons">
-							<button class="btn btn--outline" id="prevBtn" disabled>Previous</button>
-							<div class="question-indicator" id="questionIndicator">Question 1 of 6</div>
-							<button class="btn btn--primary" id="nextBtn">Next</button>
-						</div>
-					</div>
-				</div>
+                <!-- Results Screen -->
+                <div class="screen" id="resultsScreen" style="display: none;">
+                    <div class="results-content">
+                        <div class="results-header">
+                            <h2>Your Brand Assessment Results</h2>
+                            <div class="overall-score" id="overallScore">
+                                <div class="score-circle">
+                                    <div class="score-number" id="scoreNumber">0</div>
+                                    <div class="score-total">of 150</div>
+                                </div>
+                                <div class="score-label" id="scoreLabel">Brand Level</div>
+                            </div>
+                        </div>
 
-				<!-- Results Screen -->
-				<div class="screen" id="resultsScreen" style="display: none;">
-					<div class="results-content">
-						<div class="results-header">
-							<h2>Your Brand Assessment Results</h2>
-							<div class="overall-score" id="overallScore">
-								<div class="score-circle">
-									<div class="score-number" id="scoreNumber">0</div>
-									<div class="score-total">of 150</div>
-								</div>
-								<div class="score-label" id="scoreLabel">Brand Level</div>
-							</div>
-						</div>
+                        <div class="results-summary" id="resultsSummary">
+                            <!-- Results summary will be inserted here -->
+                        </div>
 
-						<div class="results-summary" id="resultsSummary">
-							<!-- Results summary will be inserted here -->
-						</div>
+                        <div class="section-results" id="sectionResults">
+                            <!-- Section-by-section results will be inserted here -->
+                        </div>
 
-						<div class="section-results" id="sectionResults">
-							<!-- Section-by-section results will be inserted here -->
-						</div>
+                        <div class="recommendations" id="recommendations">
+                            <!-- Recommendations will be inserted here -->
+                        </div>
 
-						<div class="recommendations" id="recommendations">
-							<!-- Recommendations will be inserted here -->
-						</div>
+                        <div class="results-actions">
+                            <button class="btn btn--primary" id="retakeQuizBtn">Retake Quiz</button>
+                            <button class="btn btn--outline" id="downloadResultsBtn">Download Results</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
-						<div class="results-actions">
-							<button class="btn btn--primary" id="retakeQuizBtn">Retake Quiz</button>
-							<button class="btn btn--outline" id="downloadResultsBtn">Download Results</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
-	</div>
-
-	<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
-
 </html>
